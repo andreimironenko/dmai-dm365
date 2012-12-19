@@ -115,7 +115,8 @@ CONFIGURO_BIOS	= $(PRE) $(XDC_INSTALL_DIR)/xs xdc.tools.configuro -c $(CODEGEN_I
 
 CPP_FLAGS	+= $(PLATFORM_CPPFLAGS)
 
-GCC_C_FLAGS 	= $(C_FLAGS) -Wall -Werror
+#GCC_C_FLAGS 	= $(C_FLAGS) -Wall -Werror
+GCC_C_FLAGS 	= $(C_FLAGS) -Wall 
 C64P_C_FLAGS	= $(C_FLAGS)
 
 GCC_CPP_FLAGS  	= $(CPP_FLAGS) -I$(LINUXKERNEL_INSTALL_DIR)/include
