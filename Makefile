@@ -38,12 +38,9 @@ include $(DMAI_INSTALL_DIR)/Rules.make
 
 all:	
 	$(MAKE) -C $(DMAI_INSTALL_DIR)/packages/ti/sdo/dmai
-	$(MAKE) -C $(DMAI_INSTALL_DIR)/packages/ti/sdo/dmai/apps
 
 install:
 	$(MAKE) -C $(DMAI_INSTALL_DIR)/packages/ti/sdo/dmai install
-	$(MAKE) -C $(DMAI_INSTALL_DIR)/packages/ti/sdo/dmai/apps install
 
 clean:
 	$(MAKE) -C $(DMAI_INSTALL_DIR)/packages/ti/sdo/dmai clean
-	$(MAKE) -C $(DMAI_INSTALL_DIR)/packages/ti/sdo/dmai/apps clean
