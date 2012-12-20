@@ -667,8 +667,8 @@ Int Sound_alsa_read(Sound_Handle hSound, Buffer_Handle hBuf)
     assert(hSound);
     assert(hBuf);
     
-    //readSamples = Buffer_getSize(hBuf) / (2 * hSound->channels);
-    readSamples = division(Buffer_getSize(hBuf),(2 * hSound->channels));
+    readSamples = Buffer_getSize(hBuf) / (2 * hSound->channels);
+    //readSamples = division(Buffer_getSize(hBuf),(2 * hSound->channels));
 
     bufPtr = Buffer_getUserPtr(hBuf);
 
@@ -707,8 +707,8 @@ Int Sound_alsa_write(Sound_Handle hSound, Buffer_Handle hBuf)
     assert(hSound);
     assert(hBuf);
 
-    //writeSamples = Buffer_getNumBytesUsed(hBuf) / (2 * hSound->channels);
-    writeSamples = division(Buffer_getNumBytesUsed(hBuf),(2 * hSound->channels));
+    writeSamples = Buffer_getNumBytesUsed(hBuf) / (2 * hSound->channels);
+    //writeSamples = division(Buffer_getNumBytesUsed(hBuf),(2 * hSound->channels));
 
     bufPtr = Buffer_getUserPtr(hBuf);
 
