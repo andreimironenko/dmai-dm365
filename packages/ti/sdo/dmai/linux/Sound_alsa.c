@@ -70,26 +70,6 @@ typedef struct Sound_Object {
     snd_pcm_sw_params_t    *swParamsOut;
 } Sound_Object;
 
-//Build failure problem fix. "/" is replaced by this new implemented function
-//as ARM/clib is not linked, division function is not available.
-
-static unsigned int division(unsigned int v, unsigned int d)
- {
-  unsigned int counter = 0;
- 
-  if(v < d || d == 0) 
-   return 0;
-  
-   while(v >= d)
-   {
-    v -= d;
-    counter ++;
-   }
-  
-  return counter;
- }
-
-
 /******************************************************************************
  *   setMixerInput
  *****************************************************************************/
@@ -668,7 +648,6 @@ Int Sound_alsa_read(Sound_Handle hSound, Buffer_Handle hBuf)
     assert(hBuf);
     
     readSamples = Buffer_getSize(hBuf) / (2 * hSound->channels);
-    //readSamples = division(Buffer_getSize(hBuf),(2 * hSound->channels));
 
     bufPtr = Buffer_getUserPtr(hBuf);
 
@@ -708,8 +687,6 @@ Int Sound_alsa_write(Sound_Handle hSound, Buffer_Handle hBuf)
     assert(hBuf);
 
     writeSamples = Buffer_getNumBytesUsed(hBuf) / (2 * hSound->channels);
-    //writeSamples = division(Buffer_getNumBytesUsed(hBuf),(2 * hSound->channels));
-
     bufPtr = Buffer_getUserPtr(hBuf);
 
     while (writeSamples > 0) {
